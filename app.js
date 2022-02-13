@@ -22,3 +22,43 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
+const msImageWrapperContainer = document.querySelector(".ms_image_wrapper");
+console.log(msImageWrapperContainer);
+
+const msTitle = document.querySelector(".ms_description");
+console.log(msTitle);
+
+let currentIndex = 0;
+
+for (i=0; i < items.length; i++) {
+
+    const msImage = document.createElement("div");
+    msImage.classList.add("item");
+    msImage.innerHTML = `<img src="${items[i]}" alt="">`;
+    msImageWrapperContainer.append(msImage);
+
+}
+
+const msActiveImage = [...document.getElementsByClassName("item")];
+
+msActiveImage[currentIndex].classList.add("active");
+
+const msPrevImage = document.querySelector(".ms_prev_button");
+
+msPrevImage.addEventListener("click", function() {
+
+    msActiveImage[currentIndex].classList.remove("active");
+    currentIndex--;
+    msActiveImage[currentIndex].classList.add("active");
+
+})
+
+const msNextImage = document.querySelector(".ms_next_button");
+
+msNextImage.addEventListener("click", function() {
+
+    msActiveImage[currentIndex].classList.remove("active");
+    currentIndex++;
+    msActiveImage[currentIndex].classList.add("active");
+
+})

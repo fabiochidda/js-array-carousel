@@ -17,6 +17,14 @@
     width: 100%;
 }
 
+.item {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
 .ms_preview_wrapper img {
     width: 100%;
 }
