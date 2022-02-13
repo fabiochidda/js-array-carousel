@@ -28,6 +28,9 @@ console.log(msImageWrapperContainer);
 const msTitle = document.querySelector(".ms_description");
 console.log(msTitle);
 
+const msPreviewList = document.querySelector(".ms_preview_list");
+console.log(msPreviewList);
+
 let currentIndex = 0;
 
 for (i=0; i < items.length; i++) {
@@ -38,6 +41,16 @@ for (i=0; i < items.length; i++) {
     msImageWrapperContainer.append(msImage);
 
 }
+
+const msTitleTest = document.createElement("h2");
+msTitle.append(msTitleTest);
+
+const msDescriptionP = document.createElement("p");
+msTitle.append(msDescriptionP);
+
+msDescriptionP.innerHTML = text[currentIndex]
+
+msTitleTest.innerHTML = title[currentIndex]
 
 const msActiveImage = [...document.getElementsByClassName("item")];
 
@@ -50,6 +63,8 @@ msPrevImage.addEventListener("click", function() {
     msActiveImage[currentIndex].classList.remove("active");
     currentIndex--;
     msActiveImage[currentIndex].classList.add("active");
+    msTitleTest.innerHTML = title[currentIndex];
+    msDescriptionP.innerHTML = text[currentIndex];
 
 })
 
@@ -60,5 +75,7 @@ msNextImage.addEventListener("click", function() {
     msActiveImage[currentIndex].classList.remove("active");
     currentIndex++;
     msActiveImage[currentIndex].classList.add("active");
+    msTitleTest.innerHTML = title[currentIndex];
+    msDescriptionP.innerHTML = text[currentIndex];
 
 })
