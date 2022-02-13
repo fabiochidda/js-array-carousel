@@ -40,6 +40,10 @@ for (i=0; i < items.length; i++) {
     msImage.innerHTML = `<img src="${items[i]}" alt="">`;
     msImageWrapperContainer.append(msImage);
 
+    const msPreviewImage = document.createElement("li")
+    msPreviewImage.classList.add("ms_noBorder")
+    msPreviewImage.innerHTML = `<img src="${items[i]}" alt="">`;
+    msPreviewList.append(msPreviewImage)
 }
 
 const msTitleTest = document.createElement("h2");
@@ -56,13 +60,19 @@ const msActiveImage = [...document.getElementsByClassName("item")];
 
 msActiveImage[currentIndex].classList.add("active");
 
+const msPreviewImage = [...document.getElementsByClassName("ms_noBorder")]
+
+msPreviewImage[currentIndex].classList.add("ms_border_active")
+
 const msPrevImage = document.querySelector(".ms_prev_button");
 
 msPrevImage.addEventListener("click", function() {
 
     msActiveImage[currentIndex].classList.remove("active");
+    msPreviewImage[currentIndex].classList.remove("ms_border_active")
     currentIndex--;
     msActiveImage[currentIndex].classList.add("active");
+    msPreviewImage[currentIndex].classList.add("ms_border_active")
     msTitleTest.innerHTML = title[currentIndex];
     msDescriptionP.innerHTML = text[currentIndex];
 
@@ -73,8 +83,10 @@ const msNextImage = document.querySelector(".ms_next_button");
 msNextImage.addEventListener("click", function() {
 
     msActiveImage[currentIndex].classList.remove("active");
+    msPreviewImage[currentIndex].classList.remove("ms_border_active")
     currentIndex++;
     msActiveImage[currentIndex].classList.add("active");
+    msPreviewImage[currentIndex].classList.add("ms_border_active")
     msTitleTest.innerHTML = title[currentIndex];
     msDescriptionP.innerHTML = text[currentIndex];
 
